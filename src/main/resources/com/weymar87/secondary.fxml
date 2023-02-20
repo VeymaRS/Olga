@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="480.0" prefWidth="840.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.weymar87.SecondaryController">
+    <children>
+        <Label text="База инженерно-геологических элементов" />
+      <AnchorPane prefHeight="300.0" prefWidth="200.0">
+         <children>
+            <TableView prefHeight="300.0" prefWidth="800.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Название грунта" />
+                <TableColumn prefWidth="75.0" text="C2" />
+                  <TableColumn prefWidth="75.0" text="C2" />
+                  <TableColumn prefWidth="75.0" text="C2" />
+                  <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <Pane prefHeight="55.0" prefWidth="800.0">
+         <children>
+              <Button fx:id="secondaryButton" layoutX="450.0" layoutY="15.0" onAction="#switchToPrimary" prefWidth="80.0" text="Сохранить" />
+            <Button fx:id="secondaryButton1" layoutX="720.0" layoutY="15.0" prefWidth="80.0" text="Отмена" />
+            <Button fx:id="secondaryButton2" layoutX="540.0" layoutY="15.0" onAction="#switchToPrimary" prefWidth="80.0" text="Импорт" />
+            <Button fx:id="secondaryButton21" layoutX="630.0" layoutY="15.0" onAction="#switchToPrimary" prefWidth="80.0" text="Экспорт" />
+         </children>
+      </Pane>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>

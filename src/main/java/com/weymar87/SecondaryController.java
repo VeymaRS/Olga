@@ -1,4 +1,4 @@
-package org.example;
+package com.weymar87;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
