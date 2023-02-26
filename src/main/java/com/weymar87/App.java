@@ -21,17 +21,17 @@ public class App extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
     PrimaryController primaryController;
-    private ObservableList<String> listPile = FXCollections.observableArrayList();
+    private ObservableList<Integer> listPile = FXCollections.observableArrayList();
 
     public App() {
-        listPile.add("89");
-        listPile.add("114");
-        listPile.add("159");
-//        listPile.add(219);
-//        listPile.add(273);
+        listPile.add(89);
+        listPile.add(114);
+        listPile.add(159);
+        listPile.add(219);
+        listPile.add(273);
     }
 
-    public ObservableList<String> getListPile() {
+    public ObservableList<Integer> getListPile() {
         return listPile;
     }
 
@@ -46,6 +46,20 @@ public class App extends Application {
     public void initRootLayout() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("primary.fxml"));
+            rootLayout = (BorderPane) fxmlLoader.load();
+            scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryController = fxmlLoader.getController();
+            primaryController.setApp(this);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showBaseMaterial() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("secondary.fxml"));
             rootLayout = (BorderPane) fxmlLoader.load();
             scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
