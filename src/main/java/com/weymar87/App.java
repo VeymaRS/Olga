@@ -21,17 +21,17 @@ public class App extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
     PrimaryController primaryController;
-    private ObservableList<Integer> listPile = FXCollections.observableArrayList();
+    private ObservableList<String> listPile = FXCollections.observableArrayList();
 
     public App() {
-        listPile.add(89);
-        listPile.add(114);
-        listPile.add(159);
-        listPile.add(219);
-        listPile.add(273);
+        listPile.add("89");
+        listPile.add("114");
+        listPile.add("159");
+//        listPile.add(219);
+//        listPile.add(273);
     }
 
-    public ObservableList<Integer> getListPile() {
+    public ObservableList<String> getListPile() {
         return listPile;
     }
 
@@ -39,6 +39,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         this.primaryStage = stage;
         this.primaryStage.setTitle("SunnyFroze");
+
         initRootLayout();
     }
 

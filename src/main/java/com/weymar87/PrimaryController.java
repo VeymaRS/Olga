@@ -10,10 +10,10 @@ public class PrimaryController {
     App app;
 
     @FXML
-    private ComboBox<Integer> pileDiameter;
+    private ComboBox<String> pileDiameter;
     public void setApp(App app) {
         this.app = app;
-        pileDiameter = new ComboBox<>(app.getListPile());
+        this.pileDiameter = new ComboBox<>(app.getListPile());
     }
 
     @FXML
