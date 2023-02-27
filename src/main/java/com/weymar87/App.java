@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -60,11 +62,13 @@ public class App extends Application {
     public void showBaseMaterial() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("secondary.fxml"));
-            rootLayout = (BorderPane) fxmlLoader.load();
-            scene = new Scene(rootLayout);
-            primaryStage.setScene(scene);
-            primaryController = fxmlLoader.getController();
-            primaryController.setApp(this);
+            VBox baseMaterialWindow = (VBox) fxmlLoader.load();
+            Stage materialWindow = new Stage();
+            materialWindow.initModality(Modality.WINDOW_MODAL);
+            materialWindow.initOwner(primaryStage);
+            materialWindow.setScene(new Scene(baseMaterialWindow));
+            SecondaryController secondaryController =fxmlLoader.load();
+            secondaryController.
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
