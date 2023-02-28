@@ -24,6 +24,7 @@ public class App extends Application {
     private BorderPane rootLayout;
     PrimaryController primaryController;
     private ObservableList<Integer> listPile = FXCollections.observableArrayList();
+    private ObservableList<String> baseMaterial = FXCollections.observableArrayList();
 
     public App() {
         listPile.add(89);
@@ -67,22 +68,13 @@ public class App extends Application {
             materialWindow.initModality(Modality.WINDOW_MODAL);
             materialWindow.initOwner(primaryStage);
             materialWindow.setScene(new Scene(baseMaterialWindow));
-            SecondaryController secondaryController =fxmlLoader.load();
-            secondaryController.
-            primaryStage.show();
+            SecondaryController secondaryController = fxmlLoader.getController();
+            secondaryController.setMaterialWindow(materialWindow);
+            materialWindow.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-//    static void setRoot(String fxml) throws IOException {
-//        scene.setRoot(loadFXML(fxml));
-//    }
-//
-//    private static Parent loadFXML(String fxml) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-//        return fxmlLoader.load();
-//    }
-
     public static void main(String[] args) {
         launch();
     }

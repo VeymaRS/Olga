@@ -17,10 +17,10 @@
             <TableView prefHeight="300.0" prefWidth="800.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="Название грунта" />
-                <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn prefWidth="75.0" text="Cf" />
+                  <TableColumn prefWidth="75.0" text="λf" />
+                  <TableColumn prefWidth="75.0" text="Tbf" />
+                  <TableColumn prefWidth="75.0" text="Il" />
               </columns>
             </TableView>
          </children>
