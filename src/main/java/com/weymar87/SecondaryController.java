@@ -1,6 +1,7 @@
 package com.weymar87;
 
 import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
@@ -16,8 +17,9 @@ public class SecondaryController {
     public boolean isOkClicked() {
         return okClicked;
     }
+
     @FXML
-private void handleOk(){
+    private void handleOk() {
 
 
         okClicked = true;
