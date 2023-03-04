@@ -67,7 +67,7 @@
               </columns>
             </TableView>
             <Label layoutX="620.0" layoutY="8.0" text="Геологическое строение" />
-            <Button fx:id="primaryButton" layoutX="550.0" layoutY="549.0" text="База материалов" />
+            <Button fx:id="primaryButton" layoutX="550.0" layoutY="549.0" onAction="#showBaseMaterial" text="База материалов" />
             <Label layoutX="881.0" layoutY="35.0" text="Primary View" />
          </children>
       </AnchorPane>
@@ -77,7 +77,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="Файл">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="MainMenuClose" mnemonicParsing="false" onAction="#closeApp" text="Выход" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Редактирование">

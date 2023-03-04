@@ -1,10 +1,10 @@
 package com.weymar87;
 
+import com.weymar87.base.Materials;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -20,11 +20,16 @@ public class App extends Application {
 
     private static Scene scene;
 
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
     private Stage primaryStage;
     private BorderPane rootLayout;
     PrimaryController primaryController;
     private ObservableList<Integer> listPile = FXCollections.observableArrayList();
-    private ObservableList<String> baseMaterial = FXCollections.observableArrayList();
+    private ObservableList<Materials> baseMaterials = FXCollections.observableArrayList();
+    private ObservableList<Materials> baseMaterialsCopy = FXCollections.observableArrayList();
 
     public App() {
         listPile.add(89);
@@ -32,10 +37,19 @@ public class App extends Application {
         listPile.add(159);
         listPile.add(219);
         listPile.add(273);
+        baseMaterials.add(new Materials("New Soil", 00000.00, 0.00, 0.0, 0.0));
     }
 
     public ObservableList<Integer> getListPile() {
         return listPile;
+    }
+
+    public ObservableList<Materials> getListMaterials() {
+        return baseMaterials;
+    }
+
+    public ObservableList<Materials> getListMaterialsCopy() {
+        return baseMaterialsCopy;
     }
 
     @Override
@@ -70,11 +84,13 @@ public class App extends Application {
             materialWindow.setScene(new Scene(baseMaterialWindow));
             SecondaryController secondaryController = fxmlLoader.getController();
             secondaryController.setMaterialWindow(materialWindow);
+            secondaryController.setApp(this);
             materialWindow.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     public static void main(String[] args) {
         launch();
     }
