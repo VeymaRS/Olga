@@ -17,6 +17,7 @@
             <TableView fx:id="baseMaterials" editable="true" prefHeight="300.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0">
               <columns>
                 <TableColumn fx:id="nameMaterial" prefWidth="250.0" text="Название грунта" />
+                  <TableColumn fx:id="typeSoil" prefWidth="150.0" text="Тип грунта" />
                 <TableColumn fx:id="Cf" prefWidth="75.0" text="Cf" />
                   <TableColumn fx:id="lamdaF" prefWidth="75.0" text="λf" />
                   <TableColumn fx:id="Tbf" prefWidth="75.0" text="Tbf" />

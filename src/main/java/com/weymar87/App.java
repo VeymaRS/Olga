@@ -39,7 +39,10 @@ public class App extends Application {
         listPile.add(219);
         listPile.add(273);
         baseSoils.add(new Materials("ИГЭ", 00000.00, 0.00, 0.0, 0.0));
-        typeSoil.add()
+        typeSoil.add("Пески мелкие и пылеватые");
+        typeSoil.add("Пески крупные и средней крупности");
+        typeSoil.add("Супеси");
+        typeSoil.add("Суглинки и глины");
     }
 
     public ObservableList<Integer> getListPile() {
@@ -52,6 +55,10 @@ public class App extends Application {
 
     public ObservableList<Materials> getListMaterialsCopy() {
         return baseSoilsCopy;
+    }
+
+    public ObservableList<String> getTypeSoil() {
+        return typeSoil;
     }
 
     @Override

@@ -4,6 +4,8 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Materials {
     private final StringProperty nameMaterial;
@@ -11,6 +13,7 @@ public class Materials {
     private final DoubleProperty lamdaF;
     private final DoubleProperty Tbf;
     private final DoubleProperty il;
+
 
     public Materials(String nameMaterial, Double Cf, Double lamdaF, Double Tbf, Double il) {
         this.nameMaterial = new SimpleStringProperty(nameMaterial);
@@ -79,4 +82,5 @@ public class Materials {
     public void setIl(double il) {
         this.il.set(il);
     }
+
 }
