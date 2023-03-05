@@ -28,8 +28,9 @@ public class App extends Application {
     private BorderPane rootLayout;
     PrimaryController primaryController;
     private ObservableList<Integer> listPile = FXCollections.observableArrayList();
-    private ObservableList<Materials> baseMaterials = FXCollections.observableArrayList();
-    private ObservableList<Materials> baseMaterialsCopy = FXCollections.observableArrayList();
+    private ObservableList<Materials> baseSoils = FXCollections.observableArrayList();
+    private ObservableList<Materials> baseSoilsCopy = FXCollections.observableArrayList();
+    private ObservableList<String> typeSoil = FXCollections.observableArrayList();
 
     public App() {
         listPile.add(89);
@@ -37,7 +38,8 @@ public class App extends Application {
         listPile.add(159);
         listPile.add(219);
         listPile.add(273);
-        baseMaterials.add(new Materials("New Soil", 00000.00, 0.00, 0.0, 0.0));
+        baseSoils.add(new Materials("ИГЭ", 00000.00, 0.00, 0.0, 0.0));
+        typeSoil.add()
     }
 
     public ObservableList<Integer> getListPile() {
@@ -45,11 +47,11 @@ public class App extends Application {
     }
 
     public ObservableList<Materials> getListMaterials() {
-        return baseMaterials;
+        return baseSoils;
     }
 
     public ObservableList<Materials> getListMaterialsCopy() {
-        return baseMaterialsCopy;
+        return baseSoilsCopy;
     }
 
     @Override
