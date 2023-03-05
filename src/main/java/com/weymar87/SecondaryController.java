@@ -64,19 +64,8 @@ public class SecondaryController {
 
         nameMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
         nameMaterial.setOnEditCommit(
-                t -> t.getTableView().
-
-                        getItems().
-
-                        get(
-                                t.getTablePosition().
-
-                                        getRow()).
-
-                        setNameMaterial(t.getNewValue())
+                t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setNameMaterial(t.getNewValue())
         );
-
-
     }
 
     public void setApp(App app) {
