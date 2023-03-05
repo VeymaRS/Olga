@@ -1,6 +1,8 @@
 package com.weymar87;
 
 import com.weymar87.base.Materials;
+import com.weymar87.base.SoilTypes;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -32,7 +34,7 @@ public class SecondaryController {
     @FXML
     private TableColumn<Materials, Double> il;
     @FXML
-    private TableColumn<App, String> typeSoil;
+    private TableColumn<Materials, SoilTypes> typeSoil;
 
     @FXML
     private void initialize() {
@@ -41,20 +43,37 @@ public class SecondaryController {
         lamdaF.setCellValueFactory(cellData -> cellData.getValue().lamdaFProperty().asObject());
         Tbf.setCellValueFactory(cellData -> cellData.getValue().tbfProperty().asObject());
         il.setCellValueFactory(cellData -> cellData.getValue().ilProperty().asObject());
-        typeSoil.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<App, String>, ObservableValue<String>>() {
+        typeSoil.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Materials, SoilTypes>, ObservableValue<SoilTypes>>() {
             @Override
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<App, String> materialsStringCellDataFeatures) {
-                return new SimpleStringProperty();
+            public ObservableValue<SoilTypes> call(TableColumn.CellDataFeatures<Materials, SoilTypes> materialsStringCellDataFeatures) {
+                Materials materials = materialsStringCellDataFeatures.getValue();
+                String code = materials.getSoilTypes();
+                SoilTypes soilTypes = SoilTypes.getByCode(code);
+                return new SimpleObjectProperty<>(soilTypes);
             }
         });
-        typeSoil.setCellFactory(ComboBoxTableCell.forTableColumn());
-        typeSoil.setOnEditCommit(TableColumn.CellEditEvent
+        typeSoil.setOnEditCommit((TableColumn.CellEditEvent<Materials, SoilTypes> event) -> {
+            TablePosition<Materials, SoilTypes> position = event.getTablePosition();
+            SoilTypes newSoilTypes = event.getNewValue();
+
+            int row = position.getRow();
+            Materials materials = event.getTableView().getItems().get(row);
+
+            materials.setSoilTypes(newSoilTypes.getCode());
         });
 
         nameMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
         nameMaterial.setOnEditCommit(
-                t -> t.getTableView().getItems().get(
-                        t.getTablePosition().getRow()).setNameMaterial(t.getNewValue())
+                t -> t.getTableView().
+
+                        getItems().
+
+                        get(
+                                t.getTablePosition().
+
+                                        getRow()).
+
+                        setNameMaterial(t.getNewValue())
         );
 
 
@@ -63,7 +82,7 @@ public class SecondaryController {
     public void setApp(App app) {
         this.app = app;
         baseMaterials.setItems(app.getListMaterials());
-        typeSoil.getItems().addAll(app.getTypeSoil());
+        typeSoil.setCellFactory(ComboBoxTableCell.forTableColumn(app.getTypeSoil()));
     }
 
     public void setMaterialWindow(Stage materialWindow) {
@@ -89,6 +108,6 @@ public class SecondaryController {
 
     @FXML
     private void addMaterial() {
-        app.getListMaterials().add(new Materials("New Soil", 00000.00, 0.00, 0.0, 0.0));
+        app.getListMaterials().add(new Materials("ИГЭ",SoilTypes.SAND.getCode(), 00000.00, 0.00, 0.0, 0.0));
     }
 }

@@ -4,19 +4,19 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 public class Materials {
     private final StringProperty nameMaterial;
+    private final StringProperty soilTypes;
     private final DoubleProperty Cf;
     private final DoubleProperty lamdaF;
     private final DoubleProperty Tbf;
     private final DoubleProperty il;
 
 
-    public Materials(String nameMaterial, Double Cf, Double lamdaF, Double Tbf, Double il) {
+    public Materials(String nameMaterial, String soilTypes, Double Cf, Double lamdaF, Double Tbf, Double il) {
         this.nameMaterial = new SimpleStringProperty(nameMaterial);
+        this.soilTypes = new SimpleStringProperty(soilTypes);
         this.Cf = new SimpleDoubleProperty(Cf);
         this.lamdaF = new SimpleDoubleProperty(lamdaF);
         this.Tbf = new SimpleDoubleProperty(Tbf);
@@ -83,4 +83,15 @@ public class Materials {
         this.il.set(il);
     }
 
+    public String getSoilTypes() {
+        return soilTypes.get();
+    }
+
+    public StringProperty soilTypesProperty() {
+        return soilTypes;
+    }
+
+    public void setSoilTypes(String soilTypes) {
+        this.soilTypes.set(soilTypes);
+    }
 }

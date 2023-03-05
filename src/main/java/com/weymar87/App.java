@@ -1,6 +1,7 @@
 package com.weymar87;
 
 import com.weymar87.base.Materials;
+import com.weymar87.base.SoilTypes;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,7 +31,7 @@ public class App extends Application {
     private ObservableList<Integer> listPile = FXCollections.observableArrayList();
     private ObservableList<Materials> baseSoils = FXCollections.observableArrayList();
     private ObservableList<Materials> baseSoilsCopy = FXCollections.observableArrayList();
-    private ObservableList<String> typeSoil = FXCollections.observableArrayList();
+    private ObservableList<SoilTypes> typeSoil = FXCollections.observableArrayList(SoilTypes.values());
 
     public App() {
         listPile.add(89);
@@ -38,11 +39,8 @@ public class App extends Application {
         listPile.add(159);
         listPile.add(219);
         listPile.add(273);
-        baseSoils.add(new Materials("ИГЭ", 00000.00, 0.00, 0.0, 0.0));
-        typeSoil.add("Пески мелкие и пылеватые");
-        typeSoil.add("Пески крупные и средней крупности");
-        typeSoil.add("Супеси");
-        typeSoil.add("Суглинки и глины");
+        baseSoils.add(new Materials("ИГЭ", SoilTypes.SAND.getCode(), 00000.00, 0.00, 0.0, 0.0));
+
     }
 
     public ObservableList<Integer> getListPile() {
@@ -57,7 +55,7 @@ public class App extends Application {
         return baseSoilsCopy;
     }
 
-    public ObservableList<String> getTypeSoil() {
+    public ObservableList<SoilTypes> getTypeSoil() {
         return typeSoil;
     }
 
