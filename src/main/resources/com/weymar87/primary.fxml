@@ -36,9 +36,24 @@
                 <RowConstraints maxHeight="30.0" minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="30.0" minHeight="10.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="30.0" minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <CheckBox mnemonicParsing="false" text="Расчет γt" GridPane.rowIndex="6" />
+                  <CheckBox mnemonicParsing="false" text="Расчет согласно СП" GridPane.rowIndex="6" />
                   <Label text="Параметры сваи" GridPane.columnIndex="1" />
                   <Label text="Диаметр сваи" GridPane.rowIndex="1">
                      <GridPane.margin>
@@ -58,6 +73,15 @@
                      </GridPane.margin>
                   </Label>
                   <TextField maxWidth="-Infinity" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Коэффициент γt" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="amplitude" maxWidth="-Infinity" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <TextField fx:id="tau" maxWidth="-Infinity" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <TextField fx:id="gammaTHandler" maxWidth="-Infinity" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label text="Значение коэффициента" GridPane.rowIndex="5" />
+                  <Label text="τ" GridPane.rowIndex="7" />
+                  <Label text="A" GridPane.rowIndex="8" />
+                  <TextField fx:id="amplitude1" maxWidth="-Infinity" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                  <Label text="σ" GridPane.rowIndex="9" />
                </children>
             </GridPane>
             <TableView layoutX="550.0" layoutY="35.0" prefHeight="500.0" prefWidth="270.0">
