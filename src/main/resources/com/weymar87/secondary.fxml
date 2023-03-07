@@ -16,13 +16,14 @@
          <children>
             <TableView fx:id="baseMaterials" editable="true" prefHeight="300.0" prefWidth="775.0" AnchorPane.leftAnchor="0.0">
               <columns>
-                <TableColumn fx:id="nameMaterial" prefWidth="250.0" text="Название грунта" />
-                  <TableColumn fx:id="typeSoil" prefWidth="150.0" text="Тип грунта" />
-                <TableColumn fx:id="Cf" prefWidth="75.0" text="Cf" />
-                  <TableColumn fx:id="lamdaF" prefWidth="75.0" text="λf" />
-                  <TableColumn fx:id="Tbf" prefWidth="75.0" text="Tbf" />
-                  <TableColumn fx:id="il" prefWidth="75.0" text="il" />
-                  <TableColumn fx:id="Dsal" prefWidth="75.0" text="Dsal" />
+                <TableColumn fx:id="nameMaterial" prefWidth="200.0" resizable="false" text="Название грунта" />
+                  <TableColumn fx:id="typeSoil" prefWidth="150.0" resizable="false" text="Тип грунта" />
+                <TableColumn fx:id="Cf" prefWidth="75.0" resizable="false" text="Cf" />
+                  <TableColumn fx:id="lamdaF" prefWidth="75.0" resizable="false" text="λf" />
+                  <TableColumn fx:id="Tbf" prefWidth="75.0" resizable="false" text="Tbf" />
+                  <TableColumn fx:id="il" prefWidth="75.0" resizable="false" text="il" />
+                  <TableColumn fx:id="useDsal" prefWidth="50.0" resizable="false" text="Соль" />
+                  <TableColumn fx:id="Dsal" prefWidth="75.0" resizable="false" text="Dsal" />
               </columns>
             </TableView>
          </children>

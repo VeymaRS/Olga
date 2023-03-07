@@ -1,7 +1,7 @@
 package com.weymar87;
 
 import com.weymar87.base.Hole;
-import com.weymar87.base.Materials;
+import com.weymar87.base.Soils;
 import com.weymar87.base.SoilTypes;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -30,8 +30,8 @@ public class App extends Application {
     private BorderPane rootLayout;
     PrimaryController primaryController;
     private ObservableList<Integer> listPile = FXCollections.observableArrayList();
-    private ObservableList<Materials> baseSoils = FXCollections.observableArrayList();
-    private ObservableList<Materials> baseSoilsCopy = FXCollections.observableArrayList();
+    private ObservableList<Soils> baseSoils = FXCollections.observableArrayList();
+    private ObservableList<Soils> baseSoilsCopy = FXCollections.observableArrayList();
     private ObservableList<SoilTypes> typeSoil = FXCollections.observableArrayList(SoilTypes.values());
     private ObservableList<Hole> hole = FXCollections.observableArrayList();
 
@@ -42,19 +42,19 @@ public class App extends Application {
         listPile.add(219);
         listPile.add(273);
         baseSoils.add(
-                new Materials("ИГЭ", SoilTypes.SAND.getCode(),
-                        00000.00, 0.00, 0.0, 0.0, 0.0));
+                new Soils("ИГЭ", SoilTypes.SAND.getCode(),
+                        00000.00, 0.00, 0.0, 0.0, 0.0, false));
     }
 
     public ObservableList<Integer> getListPile() {
         return listPile;
     }
 
-    public ObservableList<Materials> getListMaterials() {
+    public ObservableList<Soils> getListMaterials() {
         return baseSoils;
     }
 
-    public ObservableList<Materials> getListMaterialsCopy() {
+    public ObservableList<Soils> getListMaterialsCopy() {
         return baseSoilsCopy;
     }
 

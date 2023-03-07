@@ -1,13 +1,17 @@
 package com.weymar87;
 
-import com.weymar87.base.Materials;
+import com.weymar87.base.Soils;
 import com.weymar87.base.SoilTypes;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
@@ -21,22 +25,24 @@ public class SecondaryController {
     boolean okClicked = false;
 
     @FXML
-    private TableView<Materials> baseMaterials;
+    private TableView<Soils> baseMaterials;
     @FXML
-    private TableColumn<Materials, String> nameMaterial;
+    private TableColumn<Soils, String> nameMaterial;
     @FXML
-    private TableColumn<Materials, Double> Cf;
+    private TableColumn<Soils, Double> Cf;
     @FXML
-    private TableColumn<Materials, Double> lamdaF;
+    private TableColumn<Soils, Double> lamdaF;
     @FXML
-    private TableColumn<Materials, Double> Tbf;
+    private TableColumn<Soils, Double> Tbf;
     @FXML
-    private TableColumn<Materials, Double> il;
+    private TableColumn<Soils, Double> il;
     @FXML
-    private TableColumn<Materials, SoilTypes> typeSoil;
+    private TableColumn<Soils, SoilTypes> typeSoil;
+    @FXML
+    private TableColumn<Soils, Boolean> useDsal;
 
     @FXML
-    private TableColumn<Materials, Double> Dsal;
+    private TableColumn<Soils, Double> Dsal;
 
     @FXML
     private void initialize() {
@@ -45,24 +51,50 @@ public class SecondaryController {
         lamdaF.setCellValueFactory(cellData -> cellData.getValue().lamdaFProperty().asObject());
         Tbf.setCellValueFactory(cellData -> cellData.getValue().tbfProperty().asObject());
         il.setCellValueFactory(cellData -> cellData.getValue().ilProperty().asObject());
-        Dsal.setCellValueFactory(cellData -> cellData.getValue().dsalProperty().asObject());
-        typeSoil.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Materials, SoilTypes>, ObservableValue<SoilTypes>>() {
+        useDsal.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Soils, Boolean>, ObservableValue<Boolean>>() {
             @Override
-            public ObservableValue<SoilTypes> call(TableColumn.CellDataFeatures<Materials, SoilTypes> materialsStringCellDataFeatures) {
-                Materials materials = materialsStringCellDataFeatures.getValue();
-                String code = materials.getSoilTypes();
+            public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Soils, Boolean> soilsBooleanCell) {
+                Soils soils = soilsBooleanCell.getValue();
+                SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty(soils.isUseDsal());
+                booleanProperty.addListener(new ChangeListener<Boolean>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
+                        soils.setUseDsal(t1);
+                        if (t1) {
+                            Dsal.setEditable(true);
+                        } else if (t1 != true) {
+                            Dsal.setEditable(false);
+                        }
+                    }
+                });
+                return booleanProperty;
+            }
+        });
+        useDsal.setCellFactory(new Callback<TableColumn<Soils, Boolean>, TableCell<Soils, Boolean>>() {
+            @Override
+            public TableCell<Soils, Boolean> call(TableColumn<Soils, Boolean> soilsBooleanTableColumn) {
+                CheckBoxTableCell<Soils, Boolean> cell = new CheckBoxTableCell<>();
+                return cell;
+            }
+        });
+        Dsal.setCellValueFactory(cellData -> cellData.getValue().dsalProperty().asObject());
+        typeSoil.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Soils, SoilTypes>, ObservableValue<SoilTypes>>() {
+            @Override
+            public ObservableValue<SoilTypes> call(TableColumn.CellDataFeatures<Soils, SoilTypes> materialsStringCellDataFeatures) {
+                Soils soils = materialsStringCellDataFeatures.getValue();
+                String code = soils.getSoilTypes();
                 SoilTypes soilTypes = SoilTypes.getByCode(code);
                 return new SimpleObjectProperty<>(soilTypes);
             }
         });
-        typeSoil.setOnEditCommit((TableColumn.CellEditEvent<Materials, SoilTypes> event) -> {
-            TablePosition<Materials, SoilTypes> position = event.getTablePosition();
+        typeSoil.setOnEditCommit((TableColumn.CellEditEvent<Soils, SoilTypes> event) -> {
+            TablePosition<Soils, SoilTypes> position = event.getTablePosition();
             SoilTypes newSoilTypes = event.getNewValue();
 
             int row = position.getRow();
-            Materials materials = event.getTableView().getItems().get(row);
+            Soils soils = event.getTableView().getItems().get(row);
 
-            materials.setSoilTypes(newSoilTypes.getCode());
+            soils.setSoilTypes(newSoilTypes.getCode());
         });
 
         nameMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -94,6 +126,7 @@ public class SecondaryController {
         Dsal.setOnEditCommit(
                 t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setDsal(t.getNewValue())
         );
+        Dsal.setEditable(false);
     }
 
     public void setApp(App app) {
@@ -125,7 +158,7 @@ public class SecondaryController {
 
     @FXML
     private void addSoil() {
-        app.getListMaterials().add(new Materials("ИГЭ", SoilTypes.SAND.getCode(),
-                00000.00, 0.00, 0.0, 0.0, 0.0));
+        app.getListMaterials().add(new Soils("ИГЭ", SoilTypes.SAND.getCode(),
+                00000.00, 0.00, 0.0, 0.0, 0.0, false));
     }
 }

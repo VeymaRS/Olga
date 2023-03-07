@@ -1,10 +1,7 @@
 package com.weymar87;
 
 import com.weymar87.base.Hole;
-import com.weymar87.base.Materials;
-import com.weymar87.base.SoilTypes;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
+import com.weymar87.base.Soils;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -29,7 +26,7 @@ public class PrimaryController {
     private TableColumn<Hole, Double> soilWidth;
 
     @FXML
-    private TableColumn<Hole, Materials> soil;
+    private TableColumn<Hole, Soils> soil;
 
     public void setApp(App app) {
         this.app = app;
@@ -45,11 +42,11 @@ public class PrimaryController {
         soilWidth.setOnEditCommit(
                 t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setSoilWidth(t.getNewValue())
         );
-        soil.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Hole, Materials>, ObservableValue<Materials>>() {
+        soil.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Hole, Soils>, ObservableValue<Soils>>() {
             @Override
-            public ObservableValue<Materials> call(TableColumn.CellDataFeatures<Hole, Materials> soilBase) {
-                Materials materials = soilBase.getValue().getSoil();
-                return new SimpleObjectProperty<>(materials);
+            public ObservableValue<Soils> call(TableColumn.CellDataFeatures<Hole, Soils> soilBase) {
+                Soils soils = soilBase.getValue().getSoil();
+                return new SimpleObjectProperty<>(soils);
             }
         });
     }

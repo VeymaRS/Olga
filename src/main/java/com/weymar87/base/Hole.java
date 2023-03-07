@@ -5,9 +5,9 @@ import javafx.beans.property.SimpleDoubleProperty;
 
 public class Hole {
     private final DoubleProperty soilWidth;
-    private final Materials soil;
+    private final Soils soil;
 
-    public Hole(Double soilWidth, Materials soil) {
+    public Hole(Double soilWidth, Soils soil) {
         this.soilWidth = new SimpleDoubleProperty(soilWidth);
         this.soil = soil;
     }
@@ -24,7 +24,7 @@ public class Hole {
         this.soilWidth.set(soilWidth);
     }
 
-    public Materials getSoil() {
+    public Soils getSoil() {
         return soil;
     }
 }

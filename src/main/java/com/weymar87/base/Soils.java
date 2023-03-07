@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class Materials {
+public class Soils {
     private final StringProperty nameMaterial;
     private final StringProperty soilTypes;
     private final DoubleProperty Cf;
@@ -13,9 +13,10 @@ public class Materials {
     private final DoubleProperty Tbf;
     private final DoubleProperty il;
     private final DoubleProperty Dsal;
+    private boolean useDsal;
 
 
-    public Materials(String nameMaterial, String soilTypes, Double Cf, Double lamdaF, Double Tbf, Double il, Double Dsal) {
+    public Soils(String nameMaterial, String soilTypes, Double Cf, Double lamdaF, Double Tbf, Double il, Double Dsal, boolean useDsal) {
         this.nameMaterial = new SimpleStringProperty(nameMaterial);
         this.soilTypes = new SimpleStringProperty(soilTypes);
         this.Cf = new SimpleDoubleProperty(Cf);
@@ -23,6 +24,7 @@ public class Materials {
         this.Tbf = new SimpleDoubleProperty(Tbf);
         this.il = new SimpleDoubleProperty(il);
         this.Dsal = new SimpleDoubleProperty(Dsal);
+        this.useDsal = useDsal;
     }
 
     public String getNameMaterial() {
@@ -112,5 +114,13 @@ public class Materials {
     @Override
     public String toString() {
         return nameMaterial.getValue();
+    }
+
+    public boolean isUseDsal() {
+        return useDsal;
+    }
+
+    public void setUseDsal(boolean useDsal) {
+        this.useDsal = useDsal;
     }
 }
