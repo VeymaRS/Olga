@@ -108,4 +108,9 @@ public class Materials {
     public void setSoilTypes(String soilTypes) {
         this.soilTypes.set(soilTypes);
     }
+
+    @Override
+    public String toString() {
+        return nameMaterial.getValue();
+    }
 }

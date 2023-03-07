@@ -1,5 +1,6 @@
 package com.weymar87;
 
+import com.weymar87.base.Hole;
 import com.weymar87.base.Materials;
 import com.weymar87.base.SoilTypes;
 import javafx.application.Application;
@@ -32,6 +33,7 @@ public class App extends Application {
     private ObservableList<Materials> baseSoils = FXCollections.observableArrayList();
     private ObservableList<Materials> baseSoilsCopy = FXCollections.observableArrayList();
     private ObservableList<SoilTypes> typeSoil = FXCollections.observableArrayList(SoilTypes.values());
+    private ObservableList<Hole> hole = FXCollections.observableArrayList();
 
     public App() {
         listPile.add(89);
@@ -58,6 +60,10 @@ public class App extends Application {
 
     public ObservableList<SoilTypes> getTypeSoil() {
         return typeSoil;
+    }
+
+    public ObservableList<Hole> getHole() {
+        return hole;
     }
 
     @Override

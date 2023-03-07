@@ -33,7 +33,7 @@
             <Button fx:id="CancelButtton" layoutX="695.0" layoutY="15.0" onAction="#handleCancel" prefWidth="80.0" text="Отмена" />
             <Button fx:id="ImportButton" layoutX="515.0" layoutY="15.0" prefWidth="80.0" text="Импорт" />
             <Button fx:id="ExportButton" layoutX="605.0" layoutY="15.0" prefWidth="80.0" text="Экспорт" />
-            <Button fx:id="AddButton" layoutY="14.0" onAction="#addMaterial" prefWidth="130.0" text="Добавить материал" />
+            <Button fx:id="AddButton" layoutY="14.0" onAction="#addSoil" prefWidth="130.0" text="Добавить материал" />
          </children>
       </Pane>
     </children>

@@ -84,15 +84,16 @@
                   <Label text="σ" GridPane.rowIndex="9" />
                </children>
             </GridPane>
-            <TableView layoutX="550.0" layoutY="35.0" prefHeight="500.0" prefWidth="270.0">
+            <TableView fx:id="holeSoils" editable="true" layoutX="550.0" layoutY="35.0" prefHeight="500.0" prefWidth="270.0">
               <columns>
-                <TableColumn prefWidth="200.0" text="ИГЭ" />
-                <TableColumn prefWidth="70.0" text="Мощность" />
+                <TableColumn fx:id="soil" prefWidth="200.0" text="ИГЭ" />
+                <TableColumn fx:id="soilWidth" prefWidth="70.0" text="Мощность" />
               </columns>
             </TableView>
             <Label layoutX="620.0" layoutY="8.0" text="Геологическое строение" />
-            <Button fx:id="primaryButton" layoutX="550.0" layoutY="549.0" onAction="#showBaseMaterial" text="База материалов" />
+            <Button fx:id="primaryButton" layoutX="550.0" layoutY="549.0" maxWidth="-Infinity" onAction="#showBaseMaterial" prefWidth="110.0" text="База материалов" />
             <Label layoutX="881.0" layoutY="35.0" text="Primary View" />
+            <Button layoutX="709.0" layoutY="549.0" maxWidth="-Infinity" onAction="#addSoilInHole" prefWidth="110.0" text="Добавить слой" textAlignment="CENTER" />
          </children>
       </AnchorPane>
    </center>

@@ -3,10 +3,8 @@ package com.weymar87;
 import com.weymar87.base.Materials;
 import com.weymar87.base.SoilTypes;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
@@ -126,7 +124,7 @@ public class SecondaryController {
     }
 
     @FXML
-    private void addMaterial() {
+    private void addSoil() {
         app.getListMaterials().add(new Materials("ИГЭ", SoilTypes.SAND.getCode(),
                 00000.00, 0.00, 0.0, 0.0, 0.0));
     }
