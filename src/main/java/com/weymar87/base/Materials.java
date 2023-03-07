@@ -12,15 +12,17 @@ public class Materials {
     private final DoubleProperty lamdaF;
     private final DoubleProperty Tbf;
     private final DoubleProperty il;
+    private final DoubleProperty Dsal;
 
 
-    public Materials(String nameMaterial, String soilTypes, Double Cf, Double lamdaF, Double Tbf, Double il) {
+    public Materials(String nameMaterial, String soilTypes, Double Cf, Double lamdaF, Double Tbf, Double il, Double Dsal) {
         this.nameMaterial = new SimpleStringProperty(nameMaterial);
         this.soilTypes = new SimpleStringProperty(soilTypes);
         this.Cf = new SimpleDoubleProperty(Cf);
         this.lamdaF = new SimpleDoubleProperty(lamdaF);
         this.Tbf = new SimpleDoubleProperty(Tbf);
         this.il = new SimpleDoubleProperty(il);
+        this.Dsal = new SimpleDoubleProperty(Dsal);
     }
 
     public String getNameMaterial() {
@@ -81,6 +83,18 @@ public class Materials {
 
     public void setIl(double il) {
         this.il.set(il);
+    }
+
+    public double getDsal() {
+        return Dsal.get();
+    }
+
+    public void setDsal(double dsal) {
+        this.Dsal.set(dsal);
+    }
+
+    public DoubleProperty dsalProperty() {
+        return Dsal;
     }
 
     public String getSoilTypes() {

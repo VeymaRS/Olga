@@ -39,8 +39,9 @@ public class App extends Application {
         listPile.add(159);
         listPile.add(219);
         listPile.add(273);
-        baseSoils.add(new Materials("ИГЭ", SoilTypes.SAND.getCode(), 00000.00, 0.00, 0.0, 0.0));
-
+        baseSoils.add(
+                new Materials("ИГЭ", SoilTypes.SAND.getCode(),
+                        00000.00, 0.00, 0.0, 0.0, 0.0));
     }
 
     public ObservableList<Integer> getListPile() {

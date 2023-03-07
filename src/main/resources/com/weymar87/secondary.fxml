@@ -14,7 +14,7 @@
         <Label text="База инженерно-геологических элементов" />
       <AnchorPane prefHeight="300.0" prefWidth="200.0">
          <children>
-            <TableView fx:id="baseMaterials" editable="true" prefHeight="300.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0">
+            <TableView fx:id="baseMaterials" editable="true" prefHeight="300.0" prefWidth="775.0" AnchorPane.leftAnchor="0.0">
               <columns>
                 <TableColumn fx:id="nameMaterial" prefWidth="250.0" text="Название грунта" />
                   <TableColumn fx:id="typeSoil" prefWidth="150.0" text="Тип грунта" />
@@ -22,16 +22,17 @@
                   <TableColumn fx:id="lamdaF" prefWidth="75.0" text="λf" />
                   <TableColumn fx:id="Tbf" prefWidth="75.0" text="Tbf" />
                   <TableColumn fx:id="il" prefWidth="75.0" text="il" />
+                  <TableColumn fx:id="Dsal" prefWidth="75.0" text="Dsal" />
               </columns>
             </TableView>
          </children>
       </AnchorPane>
       <Pane prefHeight="55.0" prefWidth="800.0">
          <children>
-              <Button fx:id="SaveButton" layoutX="450.0" layoutY="15.0" onAction="#handleSave" prefWidth="80.0" text="Сохранить" />
-            <Button fx:id="CancelButtton" layoutX="720.0" layoutY="15.0" onAction="#handleCancel" prefWidth="80.0" text="Отмена" />
-            <Button fx:id="ImportButton" layoutX="540.0" layoutY="15.0" prefWidth="80.0" text="Импорт" />
-            <Button fx:id="ExportButton" layoutX="630.0" layoutY="15.0" prefWidth="80.0" text="Экспорт" />
+              <Button fx:id="SaveButton" layoutX="425.0" layoutY="15.0" onAction="#handleSave" prefWidth="80.0" text="Сохранить" />
+            <Button fx:id="CancelButtton" layoutX="695.0" layoutY="15.0" onAction="#handleCancel" prefWidth="80.0" text="Отмена" />
+            <Button fx:id="ImportButton" layoutX="515.0" layoutY="15.0" prefWidth="80.0" text="Импорт" />
+            <Button fx:id="ExportButton" layoutX="605.0" layoutY="15.0" prefWidth="80.0" text="Экспорт" />
             <Button fx:id="AddButton" layoutY="14.0" onAction="#addMaterial" prefWidth="130.0" text="Добавить материал" />
          </children>
       </Pane>

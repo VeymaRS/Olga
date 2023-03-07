@@ -14,6 +14,7 @@ import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javafx.util.converter.DoubleStringConverter;
 
 public class SecondaryController {
 
@@ -37,12 +38,16 @@ public class SecondaryController {
     private TableColumn<Materials, SoilTypes> typeSoil;
 
     @FXML
+    private TableColumn<Materials, Double> Dsal;
+
+    @FXML
     private void initialize() {
         nameMaterial.setCellValueFactory(cellData -> cellData.getValue().nameMaterialProperty());
         Cf.setCellValueFactory(cellData -> cellData.getValue().cfProperty().asObject());
         lamdaF.setCellValueFactory(cellData -> cellData.getValue().lamdaFProperty().asObject());
         Tbf.setCellValueFactory(cellData -> cellData.getValue().tbfProperty().asObject());
         il.setCellValueFactory(cellData -> cellData.getValue().ilProperty().asObject());
+        Dsal.setCellValueFactory(cellData -> cellData.getValue().dsalProperty().asObject());
         typeSoil.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Materials, SoilTypes>, ObservableValue<SoilTypes>>() {
             @Override
             public ObservableValue<SoilTypes> call(TableColumn.CellDataFeatures<Materials, SoilTypes> materialsStringCellDataFeatures) {
@@ -65,6 +70,31 @@ public class SecondaryController {
         nameMaterial.setCellFactory(TextFieldTableCell.forTableColumn());
         nameMaterial.setOnEditCommit(
                 t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setNameMaterial(t.getNewValue())
+        );
+
+        Cf.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        Cf.setOnEditCommit(
+                t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setDsal(t.getNewValue())
+        );
+
+        lamdaF.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        lamdaF.setOnEditCommit(
+                t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setLamdaF(t.getNewValue())
+        );
+
+        Tbf.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        Tbf.setOnEditCommit(
+                t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setTbf(t.getNewValue())
+        );
+
+        il.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        il.setOnEditCommit(
+                t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setIl(t.getNewValue())
+        );
+
+        Dsal.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        Dsal.setOnEditCommit(
+                t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setDsal(t.getNewValue())
         );
     }
 
@@ -97,6 +127,7 @@ public class SecondaryController {
 
     @FXML
     private void addMaterial() {
-        app.getListMaterials().add(new Materials("ИГЭ",SoilTypes.SAND.getCode(), 00000.00, 0.00, 0.0, 0.0));
+        app.getListMaterials().add(new Materials("ИГЭ", SoilTypes.SAND.getCode(),
+                00000.00, 0.00, 0.0, 0.0, 0.0));
     }
 }
