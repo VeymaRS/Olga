@@ -20,7 +20,7 @@ import javafx.util.converter.DoubleStringConverter;
 
 public class SoilBaseController {
 
-    Stage materialWindow;
+    Stage soilBaseWindow;
     App app;
     boolean okClicked = false;
 
@@ -135,8 +135,8 @@ public class SoilBaseController {
         typeSoil.setCellFactory(ComboBoxTableCell.forTableColumn(app.getTypeSoil()));
     }
 
-    public void setMaterialWindow(Stage materialWindow) {
-        this.materialWindow = materialWindow;
+    public void setSoilBaseWindow(Stage soilBaseWindow) {
+        this.soilBaseWindow = soilBaseWindow;
     }
 
     public boolean isOkClicked() {
@@ -146,14 +146,14 @@ public class SoilBaseController {
     @FXML
     private void handleSave() {
         okClicked = true;
-        materialWindow.close();
+        soilBaseWindow.close();
     }
 
     @FXML
     private void handleCancel() {
         app.getListMaterials().clear();
         app.getListMaterials().addAll(app.getListMaterialsCopy());
-        materialWindow.close();
+        soilBaseWindow.close();
     }
 
     @FXML

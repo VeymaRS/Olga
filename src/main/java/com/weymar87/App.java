@@ -1,8 +1,6 @@
 package com.weymar87;
 
-import com.weymar87.base.Hole;
-import com.weymar87.base.Soils;
-import com.weymar87.base.SoilTypes;
+import com.weymar87.base.*;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,11 +27,14 @@ public class App extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
     PrimaryController primaryController;
+
+    private SigmaBase sigmaBase = new SigmaBase();
     private ObservableList<Integer> listPile = FXCollections.observableArrayList();
     private ObservableList<Soils> baseSoils = FXCollections.observableArrayList();
     private ObservableList<Soils> baseSoilsCopy = FXCollections.observableArrayList();
     private ObservableList<SoilTypes> typeSoil = FXCollections.observableArrayList(SoilTypes.values());
     private ObservableList<Hole> hole = FXCollections.observableArrayList();
+
 
     public App() {
         listPile.add(89);
@@ -97,7 +98,7 @@ public class App extends Application {
             materialWindow.initOwner(primaryStage);
             materialWindow.setScene(new Scene(baseMaterialWindow));
             SoilBaseController soilBaseController = fxmlLoader.getController();
-            soilBaseController.setMaterialWindow(materialWindow);
+            soilBaseController.setSoilBaseWindow(materialWindow);
             soilBaseController.setApp(this);
             materialWindow.showAndWait();
         } catch (IOException e) {
@@ -105,17 +106,23 @@ public class App extends Application {
         }
     }
 
-    public  void showSigmaBase() {
+    public void showSigmaBase() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("sigmaBaseWindow.fxml"));
             VBox sigmaBaseWindow = (VBox) fxmlLoader.load();
             Stage sigmaBase = new Stage();
             sigmaBase.initModality(Modality.WINDOW_MODAL);
-
-
+            sigmaBase.initOwner(primaryStage);
+            sigmaBase.setScene(new Scene(sigmaBaseWindow));
+            SigmaBaseController sigmaBaseController = fxmlLoader.getController();
+            sigmaBaseController.setSigmaBaseWindow(sigmaBase);
+            sigmaBaseController.setApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public SigmaBase getSigmaBase() {
+        return sigmaBase;
     }
     public static void main(String[] args) {
         launch();
