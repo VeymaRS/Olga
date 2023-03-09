@@ -29,6 +29,8 @@ public class App extends Application {
     private BorderPane rootLayout;
     PrimaryController primaryController;
 
+    private Double sigmaChoose;
+
     private SigmaBase sigmaBase = new SigmaBase();
     private ObservableList<Integer> listPile = FXCollections.observableArrayList();
     private ObservableList<Soils> baseSoils = FXCollections.observableArrayList();
@@ -46,6 +48,7 @@ public class App extends Application {
         baseSoils.add(
                 new Soils("ИГЭ", SoilTypes.SAND.getCode(),
                         00000.00, 0.00, 0.0, 0.0, 0.0, false));
+        sigmaChoose = 0.0;
     }
 
     public ObservableList<Integer> getListPile() {
@@ -71,8 +74,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         this.primaryStage = stage;
-        this.primaryStage.setTitle("SunnyFroze");
-
+        this.primaryStage.setTitle("Olga");
         initRootLayout();
     }
 
@@ -118,6 +120,7 @@ public class App extends Application {
             SigmaBaseController sigmaBaseController = fxmlLoader.getController();
             sigmaBaseController.setSigmaBaseWindow(sigmaBase);
             sigmaBaseController.setApp(this);
+            sigmaBase.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -125,6 +128,15 @@ public class App extends Application {
     public SigmaBase getSigmaBase() {
         return sigmaBase;
     }
+
+    public Double getSigmaChoose() {
+        return sigmaChoose;
+    }
+
+    public void setSigmaChoose(Double sigmaChoose) {
+        this.sigmaChoose = sigmaChoose;
+    }
+
     public static void main(String[] args) {
         launch();
     }

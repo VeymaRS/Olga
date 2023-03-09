@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.Callback;
@@ -27,6 +28,8 @@ public class PrimaryController {
 
     @FXML
     private TableColumn<Hole, Soils> soil;
+    @FXML
+    private TextField sigma;
 
     public void setApp(App app) {
         this.app = app;

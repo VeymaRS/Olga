@@ -15,7 +15,7 @@
             <TableColumn fx:id="sigma" editable="false" prefWidth="70.0" text="σ, °C" />
         </columns>
       </TableView>
-      <Button layoutX="20.0" layoutY="460.0" mnemonicParsing="false" prefWidth="70.0" text="Выбрать" />
+      <Button layoutX="20.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleOk" prefWidth="70.0" text="Выбрать" />
       <Button layoutX="110.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleClose" prefWidth="70.0" text="Отмена" />
    </children>
 </AnchorPane>
