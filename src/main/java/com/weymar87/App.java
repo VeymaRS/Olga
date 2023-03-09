@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -89,7 +90,7 @@ public class App extends Application {
         }
     }
 
-    public void showBaseMaterial() {
+    public void showBaseSoils() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("soilBaseWindow.fxml"));
             VBox baseMaterialWindow = (VBox) fxmlLoader.load();
@@ -109,7 +110,7 @@ public class App extends Application {
     public void showSigmaBase() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("sigmaBaseWindow.fxml"));
-            VBox sigmaBaseWindow = (VBox) fxmlLoader.load();
+            AnchorPane sigmaBaseWindow = (AnchorPane) fxmlLoader.load();
             Stage sigmaBase = new Stage();
             sigmaBase.initModality(Modality.WINDOW_MODAL);
             sigmaBase.initOwner(primaryStage);

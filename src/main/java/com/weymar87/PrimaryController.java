@@ -52,10 +52,15 @@ public class PrimaryController {
     }
 
     @FXML
-    private void showBaseMaterial() {
+    private void showBaseSoils() {
         app.getListMaterialsCopy().clear();
         app.getListMaterialsCopy().addAll(app.getListMaterials());
-        app.showBaseMaterial();
+        app.showBaseSoils();
+    }
+
+    @FXML
+    private void showSigmaBase() {
+        app.showSigmaBase();
     }
 
     @FXML

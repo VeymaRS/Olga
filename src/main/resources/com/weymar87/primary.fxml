@@ -91,7 +91,7 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <Button fx:id="primaryButton" layoutX="360.0" layoutY="570.0" maxWidth="-Infinity" onAction="#showBaseMaterial" prefWidth="110.0" text="База материалов" />
+            <Button fx:id="primaryButton" layoutX="360.0" layoutY="570.0" maxWidth="-Infinity" onAction="#showBaseSoils" prefWidth="110.0" text="База материалов" />
             <Button layoutX="490.0" layoutY="570.0" maxWidth="-Infinity" onAction="#addSoilInHole" prefWidth="110.0" text="Добавить слой" textAlignment="CENTER" />
             <Label layoutX="684.0" layoutY="27.0" text="Термометрия">
                <font>
@@ -105,6 +105,7 @@
               </columns>
             </TableView>
             <Button layoutX="671.0" layoutY="570.0" maxWidth="-Infinity" prefWidth="120.0" text="Добавить знач-е" textAlignment="CENTER" />
+            <Button layoutX="260.0" layoutY="295.0" maxWidth="-Infinity" onAction="#showSigmaBase" text="База σ" />
          </children>
       </AnchorPane>
    </center>

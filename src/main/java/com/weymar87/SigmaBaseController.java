@@ -43,4 +43,9 @@ public class SigmaBaseController {
     public void setSigmaBaseWindow(Stage sigmaBaseWindow) {
         this.sigmaBaseWindow = sigmaBaseWindow;
     }
+
+    public void handleClose() {
+        sigmaBaseWindow.close();
+    }
+
 }
