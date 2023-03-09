@@ -90,21 +90,33 @@ public class App extends Application {
 
     public void showBaseMaterial() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("secondary.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("soilBaseWindow.fxml"));
             VBox baseMaterialWindow = (VBox) fxmlLoader.load();
             Stage materialWindow = new Stage();
             materialWindow.initModality(Modality.WINDOW_MODAL);
             materialWindow.initOwner(primaryStage);
             materialWindow.setScene(new Scene(baseMaterialWindow));
-            SecondaryController secondaryController = fxmlLoader.getController();
-            secondaryController.setMaterialWindow(materialWindow);
-            secondaryController.setApp(this);
+            SoilBaseController soilBaseController = fxmlLoader.getController();
+            soilBaseController.setMaterialWindow(materialWindow);
+            soilBaseController.setApp(this);
             materialWindow.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    public  void showSigmaBase() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("sigmaBaseWindow.fxml"));
+            VBox sigmaBaseWindow = (VBox) fxmlLoader.load();
+            Stage sigmaBase = new Stage();
+            sigmaBase.initModality(Modality.WINDOW_MODAL);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public static void main(String[] args) {
         launch();
     }

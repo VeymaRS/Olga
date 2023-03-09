@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.converter.DoubleStringConverter;
 
-public class SecondaryController {
+public class SoilBaseController {
 
     Stage materialWindow;
     App app;

@@ -16,19 +16,19 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.weymar87.PrimaryController">
    <center>
       <AnchorPane>
          <children>
-            <GridPane layoutX="20.0" layoutY="18.0" maxHeight="1.7976931348623157E308" maxWidth="557.0" prefHeight="717.0" prefWidth="480.0">
+            <GridPane layoutX="20.0" layoutY="18.0" maxHeight="1.7976931348623157E308" prefHeight="717.0">
               <columnConstraints>
-                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="150.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="170.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.40003967285156" minWidth="10.0" prefWidth="181.60003662109375" />
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="165.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="60.0" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints maxHeight="30.0" minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="30.0" minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="30.0" minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="30.0" minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
@@ -54,26 +54,23 @@
               </rowConstraints>
                <children>
                   <CheckBox mnemonicParsing="false" text="Расчет согласно СП" GridPane.rowIndex="6" />
-                  <Label text="Параметры сваи" GridPane.columnIndex="1" />
-                  <Label text="Диаметр сваи" GridPane.rowIndex="1">
+                  <Label text="Параметры сваи" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
                      <GridPane.margin>
-                        <Insets left="5.0" />
-                     </GridPane.margin>
-                  </Label>
+                        <Insets />
+                     </GridPane.margin></Label>
+                  <Label text="Диаметр сваи, мм" GridPane.rowIndex="1" />
                   <ComboBox fx:id="pileDiameter" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label text="Длина сваи" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets left="5.0" />
-                     </GridPane.margin>
-                  </Label>
+                  <Label text="Длина сваи, мм" GridPane.rowIndex="2" />
                   <TextField maxWidth="-Infinity" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Label text="Высота сваи над землей" GridPane.rowIndex="3">
-                     <GridPane.margin>
-                        <Insets left="5.0" />
-                     </GridPane.margin>
-                  </Label>
+                  <Label text="Высота сваи над землей, мм" GridPane.rowIndex="3" />
                   <TextField maxWidth="-Infinity" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Label text="Коэффициент γt" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label text="Коэффициент γt" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
                   <TextField fx:id="amplitude" maxWidth="-Infinity" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                   <TextField fx:id="tau" maxWidth="-Infinity" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                   <TextField fx:id="gammaTHandler" maxWidth="-Infinity" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
@@ -84,16 +81,30 @@
                   <Label text="σ" GridPane.rowIndex="9" />
                </children>
             </GridPane>
-            <TableView fx:id="holeSoils" editable="true" layoutX="550.0" layoutY="35.0" prefHeight="500.0" prefWidth="270.0">
+            <TableView fx:id="holeSoils" editable="true" layoutX="360.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="281.0">
               <columns>
-                <TableColumn fx:id="soil" prefWidth="200.0" text="ИГЭ" />
-                <TableColumn fx:id="soilWidth" prefWidth="70.0" text="Мощность" />
+                <TableColumn fx:id="soil" prefWidth="200.0" resizable="false" text="ИГЭ" />
+                <TableColumn fx:id="soilWidth" text="Мощ-ть, м" />
               </columns>
             </TableView>
-            <Label layoutX="620.0" layoutY="8.0" text="Геологическое строение" />
-            <Button fx:id="primaryButton" layoutX="550.0" layoutY="549.0" maxWidth="-Infinity" onAction="#showBaseMaterial" prefWidth="110.0" text="База материалов" />
-            <Label layoutX="881.0" layoutY="35.0" text="Primary View" />
-            <Button layoutX="709.0" layoutY="549.0" maxWidth="-Infinity" onAction="#addSoilInHole" prefWidth="110.0" text="Добавить слой" textAlignment="CENTER" />
+            <Label layoutX="422.0" layoutY="27.0" text="Геологическое строение">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Button fx:id="primaryButton" layoutX="360.0" layoutY="570.0" maxWidth="-Infinity" onAction="#showBaseMaterial" prefWidth="110.0" text="База материалов" />
+            <Button layoutX="490.0" layoutY="570.0" maxWidth="-Infinity" onAction="#addSoilInHole" prefWidth="110.0" text="Добавить слой" textAlignment="CENTER" />
+            <Label layoutX="684.0" layoutY="27.0" text="Термометрия">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TableView layoutX="671.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="120.0">
+              <columns>
+                <TableColumn prefWidth="60.0" text="Глубина" />
+                <TableColumn prefWidth="60.0" text="Темп., °C" />
+              </columns>
+            </TableView>
+            <Button layoutX="671.0" layoutY="570.0" maxWidth="-Infinity" prefWidth="120.0" text="Добавить знач-е" textAlignment="CENTER" />
          </children>
       </AnchorPane>
    </center>
