@@ -4,7 +4,8 @@ public enum SoilTypes {
     SAND("1", "Пески крупные и средней крупности"),
     FINESAND("2", "Пески мелкие и пылеватые"),
     SILT("3", "Супеси"),
-    LEANCLAY("4", "Суглинки и глины");
+    LEANCLAY("4", "Суглинки и глины"),
+    BOULDERS("5", "Крупно-обломочные");
 
     private String code;
     private String text;
