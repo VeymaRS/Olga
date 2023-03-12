@@ -56,7 +56,7 @@ public class Pressure {
                     550, 600, 750, 850, 950, 1050, 1100, 1300, 1350, 1700, 1800, 1900 //Глубина погружения 15 и более метров
             }
     };
-    private double[][] arrRafWithoutDsalPostFund = new double[][]{
+    private double[][] arrRWithoutDsalPostFund = new double[][]{
             {
                     -0.3, -0.5, -1, -1.5, -2, -2.5, -3, -3.5, -4, -6, -8, 10
             },
@@ -84,4 +84,11 @@ public class Pressure {
             },
     };
 
+        public double[][] getArrRWithoutDsalPile() {
+                return arrRWithoutDsalPile;
+        }
+
+        public double[][] getArrRWithoutDsalPostFund() {
+                return arrRWithoutDsalPostFund;
+        }
 }

@@ -27,7 +27,7 @@ public class Soils {
         this.useDsal = useDsal;
     }
 
-    public String getNameMaterial() {
+    public String getNameSoil() {
         return nameMaterial.get();
     }
 
